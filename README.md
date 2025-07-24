@@ -24,7 +24,7 @@ Dataset:
 Loan Prediction Dataset
 
 Instructions: 
-●	Handle missing data appropriately. 
-●	Visualize key features such as loan amount, education, and income. 
-●	Train a classification model like Logistic Regression or Decision Tree. 
-●	Evaluate the model using accuracy and a confusion matrix. 
+*	Handle missing data appropriately. 
+*	Visualize key features such as loan amount, education, and income. 
+*	Train a classification model like Logistic Regression or Decision Tree. 
+*	Evaluate the model using accuracy and a confusion matrix. 
