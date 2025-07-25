@@ -39,11 +39,9 @@ Objective:
 Dataset: 
  Churn Modelling Dataset 
 
-Instructions: 
-●	Cleaning and prepare the dataset. 
- 
-●	Encoding categorical features such as geography and gender. 
- 
-●	Training a classification model. 
- 
-●	Analyzing feature importance to understand what influences churn. 
+Instructions:
+
+*	Cleaning and prepare the dataset.  
+*	Encoding categorical features such as geography and gender. 
+*	Training a classification model. 
+*	Analyzing feature importance to understand what influences churn. 
