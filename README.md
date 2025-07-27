@@ -168,10 +168,9 @@ We encode categorical features: Gender and Geography.
 The output of target variable is:
 *  7963 customers stayed - 0 (Not churned)
 *  2037 customers left - 1 (Churned)
+
 5. **Confusion Matrix**
 After training the model and predicting:
-Interpretation:
-
 * True Positives (185): Customers correctly predicted to leave.
 * True Negatives (1538): Customers correctly predicted to stay.
 * False Positives (55): Predicted leave, but stayed.
@@ -221,4 +220,67 @@ Dataset used:
 Instructions: 
 *	Performing basic data exploration on features such as age, job, and marital status. 
 *	Training a Logistic Regression or Decision Tree classifier. 
-*	Analyzing the results to identify which customer groups are more likely to accept the offer. 
+*	Analyzing the results to identify which customer groups are more likely to accept the offer.
+
+Results:
+Here's a breakdown of what each results indicate:
+
+1. Data Visualization:
+
+These plots show the relationship between different features (age, job, marital status) and the "deposit" variable (presumably whether a deposit was made or a loan was accepted).
+
+* Age Distribution by Deposit observation(Top plot): 
+
+There appears to be a higher concentration of "no" deposits/loans among younger individuals (around 30-40 years old), while the "yes" group seems to be more spread out or slightly older on average. It also suggests that the majority of the customers are within the 20 to 60 age range.
+
+* Job vs Deposit observation (middle plot): 
+
+Certain job types, like "management" and "technician," have a significant number of both "yes" and "no" deposits. "Retired" individuals seem to have a relatively higher proportion of "yes" deposits compared to "no." "Students" and "unemployed" individuals have fewer total instances, but it's worth noting their deposit behavior.
+
+* Marital Status vs Deposit observation (bottom plot): 
+
+"Married" individuals constitute the largest group, with more "no" deposits than "yes." "Single" individuals also show a considerable number of deposits, but with a more balanced ratio compared to "Married". "Divorced" individuals have the fewest instances.
+
+2. Machine Learning Model Results:
+
+This section presents the performance metrics for two machine learning models: Logistic Regression and Decision Tree.
+
+Logistic Regression Results:
+
+* Confusion Matrix: [[911 255]] and [[259 888]] : 
+These likely represent the true negatives, false positives, false negatives, and true positives.
+
+    * For class 0 (no deposit/loan): 911 correctly predicted as "no", 255 incorrectly predicted as "yes" (false positives).
+    * For class 1 (deposit/loan): 259 incorrectly predicted as "no" (false negatives), 888 correctly predicted as "yes".
+
+* Precision, Recall, F1-score for class 0 (no): 0.78, 0.80, 0.79 respectively. Support: 1166.
+* Precision, Recall, F1-score for class 1 (yes): 0.77, 0.77, 0.77 respectively. Support: 1067.
+* Accuracy: 0.78
+* Macro Avg: Precision 0.78, Recall 0.78, F1-score 0.78.
+* Weighted Avg: Precision 0.78, Recall 0.78, F1-score 0.78.
+
+Decision Tree Results:
+
+* Confusion Matrix: [[867 299]] and [[136 931]] :
+
+    * For class 0 (no deposit/loan): 867 correctly predicted as "no", 299 incorrectly predicted as "yes" (false positives).
+    * For class 1 (deposit/loan): 136 incorrectly predicted as "no" (false negatives), 931 correctly predicted as "yes".
+
+* Precision, Recall, F1-score for class 0 (no): 0.86, 0.74, 0.80 respectively. Support: 1166.
+* Precision, Recall, F1-score for class 1 (yes): 0.76, 0.87, 0.81 respectively. Support: 1067.
+* Accuracy: 0.81
+* Macro Avg: Precision 0.81, Recall 0.81, F1-score 0.81.
+* Weighted Avg: Precision 0.81, Recall 0.80, F1-score 0.81.
+
+Summary and Interpretation:
+
+1. Exploratory Data Analysis (EDA): The visualizations provide initial insights into the relationships between demographic/job features and the target variable (deposit/loan acceptance). This is crucial for understanding the data and guiding feature engineering.
+
+2. Model Performance:
+
+* The Decision Tree model appears to outperform the Logistic Regression model in terms of overall accuracy (0.81 vs 0.78). It also shows slightly better F1-scores for both classes, indicating a better balance between precision and recall.
+* The Logistic Regression convergence warning is a critical point. Its results might not be optimal because the optimization algorithm didn't fully converge. It could potentially perform better with more iterations or if the data were scaled (e.g., using StandardScaler or MinMaxScaler).
+
+3. Class Imbalance (Potential): 
+
+While not explicitly stated as an issue, the "support" values for class 0 (1166) and class 1 (1067) are relatively close. However, for some categorical features in the visualizations, there might be imbalances in the "yes" vs. "no" counts, which could affect model performance on less represented classes.
